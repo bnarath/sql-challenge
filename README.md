@@ -20,6 +20,9 @@
 
 Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quickdatabasediagrams.com](http://www.quickdatabasediagrams.com).
 
+<img src="Images/ERD.png" alt="ERD" align="center"/> 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #### Data Engineering
 
 * Use the information you have to create a table schema for each of the six CSV files. Remember to specify data types, primary keys, foreign keys, and other constraints.
