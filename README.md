@@ -8,13 +8,16 @@
   <br><br>
   <img src="Images/postgresql-logo.png" alt="postgresql-logo" width=500/> 
 </p>
-<p float="left">
-  <img src="Images/sql.png" alt="sql"/>
+<br><br>
+<p align="left">
+  <b>In this project, we answer some of the critical questions through Data Engineering and further analysis using employee data from the year 1980 to 1990, available as CSV files. We have to import the files to tables in Postgres and perform data manipulation and further analyse the cleaned data to get meaningful results.</b><br>
+  <p float="right">
+    <img src="Images/sql.png" alt="sql"/>
+  </p>
 </p>
-
 ## Background
 
-It is a beautiful spring day, and it is two weeks since you have been hired as a new data engineer at Pewlett Hackard. Your first major task is a research project on employees of the corporation from the 1980s and 1990s. All that remain of the database of employees from that period are six CSV files.
+research project on employees of the corporation from the 1980s and 1990s. All that remain of the database of employees from that period are six CSV files.
 
 In this assignment, you will design the tables to hold data in the CSVs, import the CSVs into a SQL database, and answer questions about the data. In other words, you will perform:
 
