@@ -1,6 +1,9 @@
 # SQL Homework - Employee Database: A Mystery in Two Parts
 
-![sql.png](sql.png)
+<p float="left">
+  <img src="Images/sql.png" alt="sql" width=400/>
+  <img src="Images/postgresql-logo.png" alt="postgresql-logo" width=400/> 
+</p>
 
 ## Background
 
