@@ -1,8 +1,13 @@
-# SQL Homework - Employee Database: A Mystery in Two Parts
+# Building Employee Database Using Postgres !!
 
+<p align="center">
+  <b>PostgreSQL, also known as Postgres is a free, enterprise-class relational Data Base Management System.</b><br>
+  <a href="https://www.postgresql.org/">Postgres Website</a>
+  <br><br>
+  <img src="Images/postgresql-logo.png" alt="postgresql-logo"/> 
+</p>
 <p float="left">
-  <img src="Images/sql.png" alt="sql" width=400/>
-  <img src="Images/postgresql-logo.png" alt="postgresql-logo" width=400/> 
+  <img src="Images/sql.png" alt="sql"/>
 </p>
 
 ## Background
