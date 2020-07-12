@@ -9,10 +9,13 @@
   <img src="Images/postgresql-logo.png" alt="postgresql-logo" width=500/> 
 </p>
 <br><br>
-<p align="left">
-  <b>In this project, we answer some of the critical questions through Data Engineering and further analysis using employee data from the year 1980 to 1990, available as CSV files. We have to import the files to tables in Postgres and perform data manipulation and further analyse the cleaned data to get meaningful results.</b><br>
+<p align="center">
   <p float="right">
-    <img src="Images/sql.png" alt="sql" width=800/>
+  <b>In this project, we answer some of the critical questions through Data Engineering and further analysis using employee data from the year 1980 to 1990, available as CSV files. We have to import the files to tables in Postgres and perform data manipulation and further analyse the cleaned data to get meaningful results.</b>
+  </p>
+  <br>
+  <p float="right">
+    <img src="Images/sql.png" alt="sql" width=500/>
   </p>
 </p>
 ## Background
