@@ -47,7 +47,7 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
 **Use [this schema](Output/Schema.sql) to create the tables**
 
 - All tables have primary key. Some primary keys also serve as Foreign keys (Special syntax is being used to create them)
-  Please refer ![this link](https://dba.stackexchange.com/questions/253429/when-the-primary-key-is-also-the-foreign-key-in-postgres) for further details.
+  Please refer [this link](https://dba.stackexchange.com/questions/253429/when-the-primary-key-is-also-the-foreign-key-in-postgres) for further details.
   
   - "emp_no" in table "dept_manager" is a Primary Key as well as a Foreign Key referencing "emp_no" in "employees" table.
   - Similarly, "emp_no" in table "salaries" is a Primary Key as well as a Foreign Key referencing "emp_no" in "employees" table
@@ -68,6 +68,8 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
   1. "departments"
   1. "dept_emp"
   1. "dept_manager"
+  
+  <br>
   
 <img src="Images/Table_Creation.gif" alt="ERD" align="center"/> 
 
