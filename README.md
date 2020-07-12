@@ -4,7 +4,7 @@
   <b>PostgreSQL, also known as Postgres is a free, enterprise-class relational Data Base Management System.</b><br>
   <a href="https://www.postgresql.org/">Postgres Website</a>
   <br><br>
-  <img src="Images/postgresql-logo.png" alt="postgresql-logo"/> 
+  <img src="Images/postgresql-logo.png" alt="postgresql-logo" width=500/> 
 </p>
 <p float="left">
   <img src="Images/sql.png" alt="sql"/>
