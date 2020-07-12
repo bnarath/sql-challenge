@@ -20,6 +20,11 @@
 
 Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quickdatabasediagrams.com](http://www.quickdatabasediagrams.com).
 
+- Blue aatributes (Also Big Key symbol) indicates Primary Key (PK)
+- More than one PK in one table indicates composite key
+- Small tilted key indicates the UNIQUE attributes
+- By default, all the attributes are NOT-NULL. ? indicates "NULLABLE"
+
 <img src="Images/ERD.png" alt="ERD" align="center"/> 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
