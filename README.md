@@ -20,7 +20,7 @@
 
 Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quickdatabasediagrams.com](http://www.quickdatabasediagrams.com).
 
-<img src="Images/ERD.png" alt="postgresql-logo" align="center"/> 
+<img src="Images/ERD.png" alt="ERD" align="center" width=800/> 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #### Data Engineering
