@@ -24,7 +24,7 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
 - More than one PK in one table indicates the composite key.
 - The small tilted key indicates the UNIQUE attributes.
 - By default, all the attributes are NOT-NULL. "?" indicates "NULLABLE".
-- FK appears as bold black
+- FK appears as bold black.
 - Some attributes can be Primary Key (PK) and Foreign Key (FK) together. In that case, PK dominates and appears in Blue.
 
 <img src="Images/ERD.png" alt="ERD" align="center"/> 
