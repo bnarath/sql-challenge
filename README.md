@@ -113,6 +113,8 @@ $ ls -lrt /tmp/
 
 ## Data Analysis
 
+** The full script [here](Output/Analysis.sql)**
+
 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
 
    - Create a view with the required data
