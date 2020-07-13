@@ -153,6 +153,24 @@ $ ls -lrt /tmp/
 
 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
+  - Create a view with the required data
+  
+   ```sql
+    CREATE VIEW dept_manager_details AS 
+    SELECT dep_mngr.dept_no, depts.dept_name, dep_mngr.emp_no, emp.last_name, emp.first_name 
+    FROM dept_manager AS dep_mngr
+    LEFT JOIN departments AS depts ON dep_mngr.dept_no = depts.dept_no
+    LEFT JOIN employees AS emp ON dep_mngr.emp_no = emp.emp_no;
+
+    SELECT COUNT(*) FROM dept_manager_details;
+    SELECT * FROM dept_manager_details LIMIT 10;
+   ```
+   
+  - A snippet of sample output 
+   
+    <img src="Images/Q3_sample_output.png" alt="Q3_sample_output" align="center"/> 
+
+
 4. List the department of each employee with the following information: employee number, last name, first name, and department name.
 
 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
