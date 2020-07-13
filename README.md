@@ -111,11 +111,25 @@ $ ls -lrt /tmp/
 
 <br><br>
 
-#### Data Analysis
-
-Once you have a complete database, do the following:
+## Data Analysis
 
 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
+
+   - Create a view with the required data
+   
+   ```sql
+    DROP VIEW IF EXISTS employee_details_and_salary;
+    CREATE VIEW employee_details_and_salary AS
+    SELECT emp.emp_no, emp.last_name, emp.first_name, emp.sex, sal.salary
+    FROM employees AS emp
+    LEFT JOIN salaries AS sal
+    ON emp.emp_no = sal.emp_no;
+
+    SELECT COUNT(*) FROM employee_details_and_salary;
+    SELECT * FROM employee_details_and_salary LIMIT 10;
+   ```
+   - A snippet of sample output 
+   <img src="Images/Q1_sample_output.png" alt="Q1_sample_output" align="center"/> 
 
 2. List first name, last name, and hire date for employees who were hired in 1986.
 
