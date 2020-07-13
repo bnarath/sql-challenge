@@ -74,11 +74,13 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
 <img src="Images/Table_Creation.gif" alt="ERD" align="center"/> 
 
 
-- Import each CSV file into the corresponding SQL table. We can import either graphically (as shown below with exaples of first two tables; similar procedure for other tables too) or using scripts. The order in which the import is done should be strictly the same order in which tables are created. i.e, "titles" -> "employees" -> "salaries" -> "departments" -> "dept_emp" -> "dept_manager"
+- Import each CSV file into the corresponding SQL table. We can import either graphically (as shown below with examples of first two tables; similar procedure for other tables too) or using scripts. The order in which the import is done should be strictly the same order in which tables are created. i.e, "titles" -> "employees" -> "salaries" -> "departments" -> "dept_emp" -> "dept_manager"
 
 <br>
 
 <img src="Images/Table_Import.gif" alt="ERD" align="center"/> 
+
+- For the command-line approach, copy all the data into a folder which is accessible to "postgres" user recursively. (say /tmp)
 
 
 #### Data Analysis
