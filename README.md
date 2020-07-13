@@ -173,6 +173,25 @@ $ ls -lrt /tmp/
 
 4. List the department of each employee with the following information: employee number, last name, first name, and department name.
 
+   - Create a view with the required data
+   
+   ```sql
+    CREATE VIEW employee_dept_details AS
+    SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
+    FROM employees as emp
+    LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
+    LEFT JOIN departments AS dept ON dept_emp.dept_no = dept.dept_no;
+
+    SELECT COUNT(*) FROM employee_dept_details;
+    SELECT * FROM employee_dept_details LIMIT 10;
+   ```
+  
+   - A snippet of sample output 
+   
+      <img src="Images/Q4_sample_output.png" alt="Q4_sample_output" align="center"/> 
+
+   
+
 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
 
 6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
