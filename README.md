@@ -194,17 +194,17 @@ $ ls -lrt /tmp/
 
 1. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
 
-  ```sql
-  
-    SELECT emp.first_name, emp.last_name, emp.sex
-    FROM employees as emp
-    WHERE LOWER(emp.first_name) = 'hercules'
-    AND emp.last_name LIKE 'B%';
-  ```
+    ```sql
 
-   - A snippet of sample output 
-   
-      <img src="Images/Q5_sample_output.png" alt="Q5_sample_output" align="center"/> 
+      SELECT emp.first_name, emp.last_name, emp.sex
+      FROM employees as emp
+      WHERE LOWER(emp.first_name) = 'hercules'
+      AND emp.last_name LIKE 'B%';
+    ```
+
+     - A snippet of sample output 
+
+        <img src="Images/Q5_sample_output.png" alt="Q5_sample_output" align="center"/> 
       
       
 
