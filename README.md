@@ -210,7 +210,31 @@ $ ls -lrt /tmp/
 
   
 
-6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
+1. List all employees in the Sales department, including their employee number, last name, first name, and department name.
+
+   ```
+    SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
+    FROM employees as emp
+    LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
+    LEFT JOIN departments AS dept ON dept_emp.dept_no = dept.dept_no
+    WHERE dept.dept_name = 'Sales';
+
+    SELECT * FROM employee_dept_details
+    WHERE dept_name = 'Sales';
+   
+   ```
+   Same result is obtained from the previously created View 'employee_dept_details'
+   
+   ```
+    SELECT * FROM employee_dept_details
+    WHERE dept_name = 'Sales';
+    
+   ```
+   
+    - A snippet of sample output 
+
+        <img src="Images/Q6_sample_output.png" alt="Q6_sample_output" align="center"/> 
+   
 
 7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
