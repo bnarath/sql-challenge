@@ -20,7 +20,7 @@ SELECT * FROM employee_details_and_salary LIMIT 10;
 
 /* List first name, last name, and hire date 
 for employees who were hired in 1986. */
-
+DROP VIEW IF EXISTS employees_hired_in_1986;
 CREATE VIEW employees_hired_in_1986 AS  
 SELECT emp.first_name, emp.last_name, emp.hire_date
 FROM employees as emp
@@ -32,7 +32,7 @@ SELECT * FROM employees_hired_in_1986 LIMIT 10;
 /* List the manager of each department with the following 
 information: department number, department name, 
 the manager's employee number, last name, first name.*/
-
+DROP VIEW IF EXISTS dept_manager_details;
 CREATE VIEW dept_manager_details AS 
 SELECT dep_mngr.dept_no, depts.dept_name, dep_mngr.emp_no, emp.last_name, emp.first_name 
 FROM dept_manager AS dep_mngr
@@ -45,6 +45,7 @@ SELECT * FROM dept_manager_details LIMIT 10;
 /* List the department of each employee with the following information:
 employee number, last name, first name, and department name.
 */
+DROP VIEW IF EXISTS employee_dept_details;
 CREATE VIEW employee_dept_details AS
 SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
 FROM employees as emp
