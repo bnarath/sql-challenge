@@ -203,7 +203,7 @@ $ ls -lrt /tmp/
   
   ```
 
-  - A snippet of sample output 
+    - A snippet of sample output 
    
       <img src="Images/Q5_sample_output.png" alt="Q5_sample_output" align="center"/> 
       
