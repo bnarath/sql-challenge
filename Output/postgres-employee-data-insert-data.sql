@@ -19,4 +19,3 @@ COPY dept_emp FROM '/tmp/dept_emp.csv' DELIMITER ',' CSV HEADER;
 select pg_sleep(1);
 COPY dept_manager FROM '/tmp/dept_manager.csv' DELIMITER ',' CSV HEADER;
 select pg_sleep(1);
-
