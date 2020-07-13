@@ -258,7 +258,17 @@ $ ls -lrt /tmp/
    
 
 
-8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+1. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+
+   ```sql
+    SELECT last_name, COUNT(*) AS freqency_count
+    FROM employees
+    GROUP BY last_name
+    ORDER BY freqency_count DESC
+   ```
+   - A snippet of sample output 
+
+        <img src="Images/Q8_sample_output.png" alt="Q8_sample_output" align="center"/> 
 
 ## Bonus (Optional)
 
