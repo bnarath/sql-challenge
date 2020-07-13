@@ -200,10 +200,9 @@ $ ls -lrt /tmp/
     FROM employees as emp
     WHERE LOWER(emp.first_name) = 'hercules'
     AND emp.last_name LIKE 'B%';
-  
   ```
 
-    - A snippet of sample output 
+   - A snippet of sample output 
    
       <img src="Images/Q5_sample_output.png" alt="Q5_sample_output" align="center"/> 
       
