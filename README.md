@@ -94,6 +94,15 @@ $ ls -lrt /tmp/
 ```
 **Use [this script](Output/postgres-employee-data-insert-data.sql) to insert data into the corresponding tables**
 
+<img src="Images/Data_Insert1.gif" alt="Insertion_part1" align="center"/> 
+
+<br>
+
+**The script should finish running successfully as below**
+
+<img src="Images/Data_Insert2.gif" alt="Insertion_part2" align="center"/> 
+
+<br><br>
 
 #### Data Analysis
 
