@@ -54,6 +54,13 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
   
 - All the datatypes are mentioned with by default NOT NULL constraint, with an exception of "sex" attribute in "employees" table, as I believe, employees have right not to disclose gender!
 
+- DATE conversion is required in the local Postgres to import the DATE format in CSV. During the data exploration, it is observed that DATE is in the format MDY, hence the local Postgres DB date has to be converted to match that. This can be reverted later once the data insertion is done.
+
+```sql
+  SET datestyle to MDY, SQL;
+  select now()::date; -- to check
+```
+
 - Unique constraints are given to appropriate attributes. (Primary Keys are by default "UNIQUE")
   - "title" in table "titles" (There is no need of recording multiple entries for the same title, "title_id" & "title" have a one-to-one mapping)
   - "dept_name" in table "departments" (Same reason above)
