@@ -133,6 +133,22 @@ $ ls -lrt /tmp/
 
 2. List first name, last name, and hire date for employees who were hired in 1986.
 
+   - Create a view with the required data
+
+  ```sql
+
+  CREATE VIEW employees_hired_in_1986 AS  
+  SELECT emp.first_name, emp.last_name, emp.hire_date
+  FROM employees as emp
+  WHERE EXTRACT(YEAR FROM emp.hire_date) = 1986;
+
+  SELECT COUNT(*) FROM employees_hired_in_1986;
+  SELECT * FROM employees_hired_in_1986 LIMIT 10;
+
+  ```
+  - A snippet of sample output 
+   <img src="Images/Q2_sample_output.png" alt="Q2_sample_output" align="center"/> 
+
 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
 4. List the department of each employee with the following information: employee number, last name, first name, and department name.
