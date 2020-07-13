@@ -80,7 +80,19 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
 
 <img src="Images/Table_Import.gif" alt="ERD" align="center"/> 
 
-- For the command-line approach, copy all the data into a folder which is accessible to "postgres" user recursively. (say /tmp)
+- For the command-line approach, **copy all the data into a folder which is accessible to "postgres" user recursively. (say /tmp)**
+
+```
+$cp data/*.csv /tmp/
+$ ls -lrt /tmp/
+-rwxr-xr-x@ 1 XXX  wheel       210 Jul 12 22:09 departments.csv
+-rwxr-xr-x@ 1 XXX  wheel   3879781 Jul 12 22:09 dept_emp.csv
+-rwxr-xr-x@ 1 XXX  wheel       302 Jul 12 22:09 dept_manager.csv
+-rwxr-xr-x@ 1 XXX  wheel  14992658 Jul 12 22:09 employees.csv
+-rwxr-xr-x@ 1 XXX  wheel   3811614 Jul 12 22:09 salaries.csv
+-rwxr-xr-x@ 1 XXX  wheel       147 Jul 12 22:09 titles.csv
+```
+**Use [this schema](Output/postgres-employee-data-insert-data.sql) to insert data into the corresponding tables**
 
 
 #### Data Analysis
