@@ -94,10 +94,16 @@ $ ls -lrt /tmp/
 ```
 **Use [this script](Output/postgres-employee-data-insert-data.sql) to insert data into the corresponding tables**
 
-<p float="left">
-  <img src="Output/Images/Data_Insert1.gif" alt="Insertion_part1" width=400/>
-  <img src="Output/Images/Data_Insert2.gif" alt="Insertion_part2" width=400/> 
-</p>
+<img src="Output/Images/Data_Insert1.gif" alt="Insertion_part1" align="center"/> 
+
+<br>
+
+**The script should finish running successfully as below**
+
+<img src="Output/Images/Data_Insert2.gif" alt="Insertion_part2" align="center"/> 
+
+<br><br>
+
 #### Data Analysis
 
 Once you have a complete database, do the following:
