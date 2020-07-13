@@ -237,6 +237,26 @@ $ ls -lrt /tmp/
    
 
 7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+    
+   ```
+    SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
+    FROM employees as emp
+    LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
+    LEFT JOIN departments AS dept ON dept_emp.dept_no = dept.dept_no
+    WHERE dept.dept_name = 'Sales' OR dept.dept_name = 'Development';
+   ```
+   Same result is obtained from the previously created View 'employee_dept_details'
+   
+   ```
+    SELECT * FROM employee_dept_details
+    WHERE dept_name = 'Sales' OR dept_name = 'Development';
+   ```
+   
+   - A snippet of sample output 
+
+        <img src="Images/Q7_sample_output.png" alt="Q7_sample_output" align="center"/> 
+   
+
 
 8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
 
