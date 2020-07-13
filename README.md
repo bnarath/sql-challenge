@@ -212,7 +212,7 @@ $ ls -lrt /tmp/
 
 1. List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
-   ```
+   ```sql
     SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
     FROM employees as emp
     LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
@@ -225,7 +225,7 @@ $ ls -lrt /tmp/
    ```
    Same result is obtained from the previously created View 'employee_dept_details'
    
-   ```
+   ```sql
     SELECT * FROM employee_dept_details
     WHERE dept_name = 'Sales';
     
@@ -236,9 +236,9 @@ $ ls -lrt /tmp/
         <img src="Images/Q6_sample_output.png" alt="Q6_sample_output" align="center"/> 
    
 
-7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+1. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
     
-   ```
+   ```sql
     SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
     FROM employees as emp
     LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
@@ -247,7 +247,7 @@ $ ls -lrt /tmp/
    ```
    Same result is obtained from the previously created View 'employee_dept_details'
    
-   ```
+   ```sql
     SELECT * FROM employee_dept_details
     WHERE dept_name = 'Sales' OR dept_name = 'Development';
    ```
