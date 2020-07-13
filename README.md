@@ -132,7 +132,7 @@ $ ls -lrt /tmp/
    
    <img src="Images/Q1_sample_output.png" alt="Q1_sample_output" align="center"/> 
 
-2. List first name, last name, and hire date for employees who were hired in 1986.
+1. List first name, last name, and hire date for employees who were hired in 1986.
 
    - Create a view with the required data
 
@@ -151,7 +151,7 @@ $ ls -lrt /tmp/
    
     <img src="Images/Q2_sample_output.png" alt="Q2_sample_output" align="center"/> 
 
-3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
+1. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
     - Create a view with the required data
   
@@ -171,7 +171,7 @@ $ ls -lrt /tmp/
       <img src="Images/Q3_sample_output.png" alt="Q3_sample_output" align="center"/> 
 
 
-4. List the department of each employee with the following information: employee number, last name, first name, and department name.
+1. List the department of each employee with the following information: employee number, last name, first name, and department name.
 
    - Create a view with the required data
    
@@ -192,7 +192,24 @@ $ ls -lrt /tmp/
 
    
 
-5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
+1. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
+
+  ```sql
+  
+    SELECT emp.first_name, emp.last_name, emp.sex
+    FROM employees as emp
+    WHERE LOWER(emp.first_name) = 'hercules'
+    AND emp.last_name LIKE 'B%';
+  
+  ```
+
+  - A snippet of sample output 
+   
+      <img src="Images/Q5_sample_output.png" alt="Q5_sample_output" align="center"/> 
+      
+      
+
+  
 
 6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
