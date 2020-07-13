@@ -279,6 +279,8 @@ $ ls -lrt /tmp/
 1. Import the SQL database into Pandas. (Alternate option is to read the CSVs directly in Pandas)
    For connecting to the DB in Python, sqlalchemy toolkit is used. 
    For further details on SQL Alchemy, please visit their [website](https://www.sqlalchemy.org/)
+   Also, Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for implementation.
+
 
    ```sql
    from sqlalchemy import create_engine
@@ -286,8 +288,7 @@ $ ls -lrt /tmp/
    connection = engine.connect()
    ```
 
-* Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for more information.
-
+* 
 * If using a password, do not upload your password to your GitHub repository. See [https://www.youtube.com/watch?v=2uaTPmNvH0I](https://www.youtube.com/watch?v=2uaTPmNvH0I) and [https://help.github.com/en/github/using-git/ignoring-files](https://help.github.com/en/github/using-git/ignoring-files) for more information.
 
 2. Create a histogram to visualize the most common salary ranges for employees.
