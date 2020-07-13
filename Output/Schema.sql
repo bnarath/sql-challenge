@@ -31,7 +31,7 @@ CREATE TABLE "employees" (
     CONSTRAINT "emp_no" PRIMARY KEY (
         "emp_no"
     ),
-    CONSTRAINT "fk_employees_emp_title_id" FOREIGN KEY("emp_title_id") REFERENCES "titles" ("title")
+    CONSTRAINT "fk_employees_emp_title_id" FOREIGN KEY("emp_title_id") REFERENCES "titles" ("title_id")
 );
 
 CREATE TABLE "salaries" (
