@@ -283,22 +283,24 @@ $ ls -lrt /tmp/
 
    - Create a config file with the following information in the code folder
    
-   ```diff
-      $ cat code/config.py 
-      username = <USERNAME> 
-      password = <PASSWORD>
-      hostname_or_ip = 'localhost' #If installed locally
-      port = 5432 #Default port, if not changed explicitly
-      DB = 'employee_DB' #If you also created with the same name as per my instruction's above!
-   ```
+     ```diff
+        $ cat code/config.py 
+        username = <USERNAME> 
+        password = <PASSWORD>
+        hostname_or_ip = 'localhost' #If installed locally
+        port = 5432 #Default port, if not changed explicitly
+        DB = 'employee_DB' #If you also created with the same name as per my instruction's above!
+     ```
    
-   ```sql
-    from config import username, password, hostname_or_ip, port, DB
-    from sqlalchemy import create_engine
+   - Connect to Postgres DB as below
+   
+     ```sql
+      from config import username, password, hostname_or_ip, port, DB
+      from sqlalchemy import create_engine
 
-    engine = create_engine(f'postgresql://{username}:{password}@{hostname_or_ip}:{port}/{DB}')
-    connection = engine.connect()
-   ```
+      engine = create_engine(f'postgresql://{username}:{password}@{hostname_or_ip}:{port}/{DB}')
+      connection = engine.connect()
+     ```
 
 * Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for more information.
 
