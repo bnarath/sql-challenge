@@ -1,6 +1,10 @@
 --To disable NOTICES in psql output
 SET client_min_messages TO WARNING;
 
+--To handle the DATE in MDY format in the data, change the Date format to MDY (By default, it is YMD(Depends on the location))
+SET datestyle to MDY, SQL;
+select now()::date; -- to check
+
 --Drop the tables if they exist
 DROP TABLE IF EXISTS "employees" CASCADE;
 DROP TABLE IF EXISTS "salaries" CASCADE;
@@ -23,11 +27,11 @@ CREATE TABLE "titles" (
 CREATE TABLE "employees" (
     "emp_no" INTEGER  NOT NULL,
     "emp_title_id" VARCHAR(5)   NOT NULL,
-    "birth_date" VARCHAR(10)   NOT NULL,
+    "birth_date" DATE   NOT NULL,
     "first_name" VARCHAR(20)   NOT NULL,
     "last_name" VARCHAR(20)   NOT NULL,
     "sex" VARCHAR(1), --By default NULL
-    "hire_date" VARCHAR(10)   NOT NULL,
+    "hire_date" DATE   NOT NULL,
     CONSTRAINT "emp_no" PRIMARY KEY (
         "emp_no"
     ),
