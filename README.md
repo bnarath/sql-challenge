@@ -92,7 +92,7 @@ $ ls -lrt /tmp/
 -rwxr-xr-x@ 1 XXX  wheel   3811614 Jul 12 22:09 salaries.csv
 -rwxr-xr-x@ 1 XXX  wheel       147 Jul 12 22:09 titles.csv
 ```
-**Use [this schema](Output/postgres-employee-data-insert-data.sql) to insert data into the corresponding tables**
+**Use [this script](Output/postgres-employee-data-insert-data.sql) to insert data into the corresponding tables**
 
 
 #### Data Analysis
