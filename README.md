@@ -281,7 +281,8 @@ $ ls -lrt /tmp/
    For further details on SQL Alchemy, please visit their [website](https://www.sqlalchemy.org/).
    Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for implementation details.
 
-   - Create a config file with the following information in the code folder
+   - Create a config file with the following information in the code folder.
+     See [https://www.youtube.com/watch?v=2uaTPmNvH0I](https://www.youtube.com/watch?v=2uaTPmNvH0I) and [https://help.github.com/en/github/using-git/ignoring-files](https://help.github.com/en/github/using-git/ignoring-files) for more information on password protection in github.
    
      ```diff
         $ cat code/config.py 
@@ -295,20 +296,60 @@ $ ls -lrt /tmp/
    - Connect to Postgres DB as below
    
      ```sql
-      from config import username, password, hostname_or_ip, port, DB
-      from sqlalchemy import create_engine
-
-      engine = create_engine(f'postgresql://{username}:{password}@{hostname_or_ip}:{port}/{DB}')
-      connection = engine.connect()
+        from config import username, password, hostname_or_ip, port, DB
+        from sqlalchemy import create_engine
+        db_uri = f'postgresql://{username}:{password}@{hostname_or_ip}:{port}/{DB}'
+        engine = create_engine(db_uri, echo=True) #echo = True to log every query our SQL database executes to the terminal
+        connection = engine.connect()
      ```
 
-* Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for more information.
 
-* If using a password, do not upload your password to your GitHub repository. See [https://www.youtube.com/watch?v=2uaTPmNvH0I](https://www.youtube.com/watch?v=2uaTPmNvH0I) and [https://help.github.com/en/github/using-git/ignoring-files](https://help.github.com/en/github/using-git/ignoring-files) for more information.
+1. Create a histogram to visualize the most common salary ranges for employees.
+   
+   - Direct SQL query result to pandas DF
+     ```sql
+        query = "SELECT emp.emp_no, sal.salary \
+        FROM employees AS emp \
+        LEFT JOIN salaries AS sal \
+        ON emp.emp_no = sal.emp_no"
 
-2. Create a histogram to visualize the most common salary ranges for employees.
+        Employee_Salary_DF = pd.read_sql(
+                    query,
+                    con=connection
+        )
+     ```
+     
+    - Histogram is plotted on the retrieved information. 
+    - **Salary range is 40000 to 129492**
+    - **Mean salary is 52970.7**
+    
+      <img src="Images/histogram.png" alt="histogram" align="center"/> 
+    
+    
 
-3. Create a bar chart of average salary by title.
+1. Create a bar chart of average salary by title.
+
+   - Direct SQL query result to pandas DF
+     
+     ```sql
+        query = "SELECT titles.title, AVG(sal.salary) AS Average_Salary \
+        FROM employees AS emp \
+        LEFT JOIN salaries AS sal ON emp.emp_no = sal.emp_no \
+        LEFT JOIN titles ON emp.emp_title_id = titles.title_id \
+        GROUP BY titles.title \
+        ORDER BY Average_Salary DESC"
+
+        Employee_title_Agg_Salary_DF = pd.read_sql(
+                    query,
+                    con=connection
+        )
+     ```
+   
+   - Barchart is plotted on the retrieved information.
+   - **All the technical positions have less average salary compared to managerial positions**
+   - **Senior Engineer position has less average salary than Engineer and Assistant Engineer. This is a proof that this data is fake**
+   
+     <img src="Images/Avg_salary_per_title.png" alt="Avg_salary_per_title" align="center"/>
 
 ## Epilogue
 
