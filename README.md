@@ -272,17 +272,35 @@ $ ls -lrt /tmp/
 
         <img src="Images/Q8_sample_output.png" alt="Q8_sample_output" align="center"/> 
 
-## Bonus (Optional)
 
-As you examine the data, you are overcome with a creeping suspicion that the dataset is fake. You surmise that your boss handed you spurious data in order to test the data engineering skills of a new employee. To confirm your hunch, you decide to take the following steps to generate a visualization of the data, with which you will confront your boss:
+## Data Visualization in Python
 
-1. Import the SQL database into Pandas. (Yes, you could read the CSVs directly in Pandas, but you are, after all, trying to prove your technical mettle.) This step may require some research. Feel free to use the code below to get started. Be sure to make any necessary modifications for your username, password, host, port, and database name:
 
-   ```sql
-   from sqlalchemy import create_engine
-   engine = create_engine('postgresql://localhost:5432/<your_db_name>')
-   connection = engine.connect()
-   ```
+1. Import the SQL database into Pandas. (Alternate option is to read the CSVs directly in Pandas)
+   For connecting to the DB in Python, sqlalchemy toolkit is used. 
+   For further details on SQL Alchemy, please visit their [website](https://www.sqlalchemy.org/).
+   Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for implementation details.
+
+   - Create a config file with the following information in the code folder
+   
+     ```diff
+        $ cat code/config.py 
+        username = <USERNAME> 
+        password = <PASSWORD>
+        hostname_or_ip = 'localhost' #If installed locally
+        port = 5432 #Default port, if not changed explicitly
+        DB = 'employee_DB' #If you also created with the same name as per my instruction's above!
+     ```
+   
+   - Connect to Postgres DB as below
+   
+     ```sql
+      from config import username, password, hostname_or_ip, port, DB
+      from sqlalchemy import create_engine
+
+      engine = create_engine(f'postgresql://{username}:{password}@{hostname_or_ip}:{port}/{DB}')
+      connection = engine.connect()
+     ```
 
 * Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for more information.
 
