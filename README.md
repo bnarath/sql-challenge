@@ -274,43 +274,123 @@ $ ls -lrt /tmp/
 
 
 ## Data Visualization in Python
-
+**Jupyter Notebook [here](code/Connect_to_PostgresDB_and_Visualization.ipynb)**
 
 1. Import the SQL database into Pandas. (Alternate option is to read the CSVs directly in Pandas)
    For connecting to the DB in Python, sqlalchemy toolkit is used. 
-   For further details on SQL Alchemy, please visit their [website](https://www.sqlalchemy.org/)
-   Also, Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for implementation.
+   For further details on SQL Alchemy, please visit their [website](https://www.sqlalchemy.org/).
+   Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for implementation details.
+
+   - Create a config file with the following information in the code folder.
+     See [https://www.youtube.com/watch?v=2uaTPmNvH0I](https://www.youtube.com/watch?v=2uaTPmNvH0I) and [https://help.github.com/en/github/using-git/ignoring-files](https://help.github.com/en/github/using-git/ignoring-files) for more information on password protection in github.
+   
+     ```diff
+        $ cat code/config.py 
+        username = <USERNAME> 
+        password = <PASSWORD>
+        hostname_or_ip = 'localhost' #If installed locally
+        port = 5432 #Default port, if not changed explicitly
+        DB = 'employee_DB' #If you also created with the same name as per my instruction's above!
+     ```
+   
+   - Connect to Postgres DB as below
+   
+     ```sql
+        from config import username, password, hostname_or_ip, port, DB
+        from sqlalchemy import create_engine
+        db_uri = f'postgresql://{username}:{password}@{hostname_or_ip}:{port}/{DB}'
+        engine = create_engine(db_uri, echo=True) #echo = True to log every query our SQL database executes to the terminal
+        connection = engine.connect()
+     ```
 
 
-   ```sql
-   from sqlalchemy import create_engine
-   engine = create_engine('postgresql://localhost:5432/<your_db_name>')
-   connection = engine.connect()
-   ```
+1. Create a histogram to visualize the most common salary ranges for employees.
+   
+   - Direct SQL query result to pandas DF
+     ```sql
+        query = "SELECT emp.emp_no, sal.salary \
+        FROM employees AS emp \
+        LEFT JOIN salaries AS sal \
+        ON emp.emp_no = sal.emp_no"
 
-* 
-* If using a password, do not upload your password to your GitHub repository. See [https://www.youtube.com/watch?v=2uaTPmNvH0I](https://www.youtube.com/watch?v=2uaTPmNvH0I) and [https://help.github.com/en/github/using-git/ignoring-files](https://help.github.com/en/github/using-git/ignoring-files) for more information.
+        Employee_Salary_DF = pd.read_sql(
+                    query,
+                    con=connection
+        )
+     ```
+     
+    - Histogram is plotted on the retrieved information. 
+    - **Salary range is 40000 to 129492**
+    - **Mean salary is 52970.7**
+    
+      <img src="Images/histogram.png" alt="histogram" align="center"/> 
+    
+    
 
-2. Create a histogram to visualize the most common salary ranges for employees.
+1. Create a bar chart of average salary by title.
 
-3. Create a bar chart of average salary by title.
+   - Direct SQL query result to pandas DF
+     
+     ```sql
+        query = "SELECT titles.title, AVG(sal.salary) AS Average_Salary \
+        FROM employees AS emp \
+        LEFT JOIN salaries AS sal ON emp.emp_no = sal.emp_no \
+        LEFT JOIN titles ON emp.emp_title_id = titles.title_id \
+        GROUP BY titles.title \
+        ORDER BY Average_Salary DESC"
+
+        Employee_title_Agg_Salary_DF = pd.read_sql(
+                    query,
+                    con=connection
+        )
+     ```
+   
+   - Barchart is plotted on the retrieved information.
+   - **All the technical positions have less average salary compared to managerial positions**
+   - **Senior Engineer position has less average salary than Engineer and Assistant Engineer. This is proof that this data is fake**
+   
+     <img src="Images/Avg_salary_per_title.png" alt="Avg_salary_per_title" align="center"/>
 
 ## Epilogue
 
 Evidence in hand, you march into your boss's office and present the visualization. With a sly grin, your boss thanks you for your work. On your way out of the office, you hear the words, "Search your ID number." You look down at your badge to see that your employee ID number is 499942.
 
-## Submission
+  - Checking my data !
+  
+    ```sql
+      query = "SELECT emp.birth_date, emp.first_name, emp.last_name, emp.sex, emp.hire_date, \
+      sal.salary,  titles.title, dept.dept_name \
+      FROM employees AS emp \
+      LEFT JOIN salaries AS sal ON emp.emp_no = sal.emp_no \
+      LEFT JOIN titles ON emp.emp_title_id = titles.title_id \
+      LEFT JOIN dept_emp AS depEmp ON emp.emp_no = depEmp.emp_no \
+      LEFT JOIN departments AS dept ON depEmp.dept_no = dept.dept_no \
+      WHERE emp.emp_no = 499942"
 
-* Create an image file of your ERD.
+      MyData_DF = pd.read_sql(
+                  query,
+                  con=connection
+      )
+    ```
+    
+   - What did I find ?
+   
+      <img src="Images/epilogue.png" alt="The_harsh_truth" align="center"/>
+   
+   - My reaction after what I found !!! GIF Courtesy [https://giphy.com/](https://giphy.com/)
+   
+      <img src="Images/Oh_No.gif" alt="Oh No!!" align="center"/>
+   
 
-* Create a `.sql` file of your table schemata.
+# File Details
 
-* Create a `.sql` file of your queries.
+* [ERD](Images/ERD.png)
 
-* (Optional) Create a Jupyter Notebook of the bonus analysis.
+* [`.sql` file of table schemata](Output/Schema.sql)
 
-* Create and upload a repository with the above files to GitHub and post a link on BootCamp Spot.
+* [`.sql` file of data insertion](Output/postgres-employee-data-insert-data.sql)
 
-### Copyright
+* [`.sql` file of your queries](Output/Analysis.sql)
 
-Trilogy Education Services © 2019. All Rights Reserved.
+* [Jupyter Notebook of the analysis](code/Connect_to_PostgresDB_and_Visualization.ipynb)
+
