@@ -355,6 +355,31 @@ $ ls -lrt /tmp/
 
 Evidence in hand, you march into your boss's office and present the visualization. With a sly grin, your boss thanks you for your work. On your way out of the office, you hear the words, "Search your ID number." You look down at your badge to see that your employee ID number is 499942.
 
+  - Checking my data !
+  
+    ```sql
+      query = "SELECT emp.birth_date, emp.first_name, emp.last_name, emp.sex, emp.hire_date, \
+      sal.salary,  titles.title, dept.dept_name \
+      FROM employees AS emp \
+      LEFT JOIN salaries AS sal ON emp.emp_no = sal.emp_no \
+      LEFT JOIN titles ON emp.emp_title_id = titles.title_id \
+      LEFT JOIN dept_emp AS depEmp ON emp.emp_no = depEmp.emp_no \
+      LEFT JOIN departments AS dept ON depEmp.dept_no = dept.dept_no \
+      WHERE emp.emp_no = 499942"
+
+      MyData_DF = pd.read_sql(
+                  query,
+                  con=connection
+      )
+    ```
+    
+   - What did I find ?
+   
+      <img src="Images/epilogue.png" alt="The_harsh_truth" align="center"/>
+   
+   - My reaction after what I found !!!
+   
+
 ## Submission
 
 * Create an image file of your ERD.
