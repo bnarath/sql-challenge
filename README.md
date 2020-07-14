@@ -274,7 +274,7 @@ $ ls -lrt /tmp/
 
 
 ## Data Visualization in Python
-
+**Jupyter Notebook [here](code/Connect_to_PostgresDB_and_Visualization.ipynb)**
 
 1. Import the SQL database into Pandas. (Alternate option is to read the CSVs directly in Pandas)
    For connecting to the DB in Python, sqlalchemy toolkit is used. 
@@ -377,21 +377,20 @@ Evidence in hand, you march into your boss's office and present the visualizatio
    
       <img src="Images/epilogue.png" alt="The_harsh_truth" align="center"/>
    
-   - My reaction after what I found !!!
+   - My reaction after what I found !!! GIF Courtesy [https://giphy.com/](https://giphy.com/)
+   
+      <img src="Images/Oh_No.gif" alt="Oh No!!" align="center"/>
    
 
-## Submission
+# File Details
 
-* Create an image file of your ERD.
+* [ERD](Images/ERD.png)
 
-* Create a `.sql` file of your table schemata.
+* [`.sql` file of table schemata](Output/Schema.sql)
 
-* Create a `.sql` file of your queries.
+* [`.sql` file of data insertion](Output/postgres-employee-data-insert-data.sql)
 
-* (Optional) Create a Jupyter Notebook of the bonus analysis.
+* [`.sql` file of your queries](Output/Analysis.sql)
 
-* Create and upload a repository with the above files to GitHub and post a link on BootCamp Spot.
+* [Jupyter Notebook of the analysis](code/Connect_to_PostgresDB_and_Visualization.ipynb)
 
-### Copyright
-
-Trilogy Education Services © 2019. All Rights Reserved.
