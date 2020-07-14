@@ -347,7 +347,7 @@ $ ls -lrt /tmp/
    
    - Barchart is plotted on the retrieved information.
    - **All the technical positions have less average salary compared to managerial positions**
-   - **Senior Engineer position has less average salary than Engineer and Assistant Engineer. This is a proof that this data is fake**
+   - **Senior Engineer position has less average salary than Engineer and Assistant Engineer. This is proof that this data is fake**
    
      <img src="Images/Avg_salary_per_title.png" alt="Avg_salary_per_title" align="center"/>
 
