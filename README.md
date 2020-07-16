@@ -121,7 +121,8 @@ $ ls -lrt /tmp/
    
    ```sql
     CREATE VIEW employee_details_and_salary AS
-    SELECT emp.emp_no, emp.last_name, emp.first_name, emp.sex, sal.salary
+    SELECT emp.emp_no AS "employee number", 
+    emp.last_name "last name", emp.first_name AS "first name", emp.sex, sal.salary
     FROM employees AS emp
     LEFT JOIN salaries AS sal
     ON emp.emp_no = sal.emp_no;
