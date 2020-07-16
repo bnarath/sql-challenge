@@ -120,7 +120,6 @@ $ ls -lrt /tmp/
    - Create a view with the required data
    
    ```sql
-    DROP VIEW IF EXISTS employee_details_and_salary;
     CREATE VIEW employee_details_and_salary AS
     SELECT emp.emp_no, emp.last_name, emp.first_name, emp.sex, sal.salary
     FROM employees AS emp
