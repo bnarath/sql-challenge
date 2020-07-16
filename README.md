@@ -63,7 +63,7 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
 
 - Unique constraints are given to appropriate attributes. (Primary Keys are by default "UNIQUE")
   - "title" in table "titles" (There is no need of recording multiple entries for the same title, "title_id" & "title" have a one-to-one mapping)
-  - "dept_name" in table "departments" (Same reason above)
+  - "dept_name" in table "departments" (Same reason as mentioned above)
   
 - "composite key" is created for table "dept_emp" as both "emp_no" and "dept_no" are not unique, as some employee seems to work in multiple departments!
   The tuple created with both these attribute uniquely identifies a row. Also, as each of these attributes is a foreign key, this composite key is also a compound key.
