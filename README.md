@@ -23,7 +23,7 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
 - Blue attributes (Also Big Key symbol) indicate Primary Key (PK).
 - More than one PK in one table indicates the composite key.
 - The small tilted key indicates UNIQUE attributes.
-- By default, all the attributes are NOT-NULL. "?" indicates "NULLABLE".
+- By default, all the attributes are NOT-NULL. `?` indicates `NULLABLE`.
 - FK appears as bold black.
 - Some attributes can be Primary Key (PK) and Foreign Key (FK) together. In that case, PK dominates and appears in Blue.
 
@@ -33,7 +33,7 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
 ## Data Engineering
 
 ### Database Creation
-**Create a DB named "employee_DB" with the following details**
+**Create a DB named `employee_DB` with the following details**
 ```sql
   CREATE DATABASE "employee_DB"
       WITH 
@@ -49,10 +49,10 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
 - All tables have primary key. Some primary keys also serve as Foreign keys (Special syntax is being used to create them)
   Please refer [this link](https://dba.stackexchange.com/questions/253429/when-the-primary-key-is-also-the-foreign-key-in-postgres) for further details.
   
-  - "emp_no" in table "dept_manager" is a Primary Key as well as a Foreign Key referencing "emp_no" in "employees" table.
-  - Similarly, "emp_no" in table "salaries" is a Primary Key as well as a Foreign Key referencing "emp_no" in "employees" table
+  - `emp_no` in table `dept_manager` is a Primary Key as well as a Foreign Key referencing `emp_no` in `employees` table.
+  - Similarly, `emp_no` in table `salaries` is a Primary Key as well as a Foreign Key referencing `emp_no` in `employees` table
   
-- All the datatypes are mentioned with by default NOT NULL constraint, with an exception of "sex" attribute in "employees" table, as I believe, employees have right not to disclose gender!
+- All the datatypes are mentioned with by default NOT NULL constraint, with an exception of `sex` attribute in `employees` table, as I believe, employees have right not to disclose gender!
 
 - DATE conversion is required in the local Postgres to import the DATE format in CSV. During the data exploration, it is observed that DATE is in the format MDY, hence the local Postgres DB date has to be converted to match that. This can be reverted later once the data insertion is done.
 
@@ -61,27 +61,27 @@ Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quick
   select now()::date; -- to check
 ```
 
-- Unique constraints are given to appropriate attributes. (Primary Keys are by default "UNIQUE")
-  - "title" in table "titles" (There is no need of recording multiple entries for the same title, "title_id" & "title" have a one-to-one mapping)
-  - "dept_name" in table "departments" (Same reason as mentioned above)
+- Unique constraints are given to appropriate attributes. (Primary Keys are by default `UNIQUE`)
+  - `title` in table `titles` (There is no need of recording multiple entries for the same title, `title_id` & `title` have a one-to-one mapping)
+  - `dept_name` in table `departments` (Same reason as mentioned above)
   
-- "composite key" is created for table "dept_emp" as both "emp_no" and "dept_no" are not unique, as some employee seems to work in multiple departments!
+- `composite key` is created for table `dept_emp` as both `emp_no` and `dept_no` are not unique, as some employee seems to work in multiple departments!
   The tuple created with both these attribute uniquely identifies a row. Also, as each of these attributes is a foreign key, this composite key is also a compound key.
   
 - Tables are created in the order below to handle foreign keys.
-  1. "titles"
-  1. "employees"
-  1. "salaries"
-  1. "departments"
-  1. "dept_emp"
-  1. "dept_manager"
+  1. `titles`
+  1. `employees`
+  1. `salaries`
+  1. `departments`
+  1. `dept_emp`
+  1. `dept_manager`
   
   <br>
   
 <img src="Images/Table_Creation.gif" alt="ERD" align="center"/> 
 
 
-- Import each CSV file into the corresponding SQL table. We can import either graphically (as shown below with examples of first two tables; similar procedure for other tables too) or using scripts. The order in which the import is done should be strictly the same order in which tables are created. i.e, "titles" -> "employees" -> "salaries" -> "departments" -> "dept_emp" -> "dept_manager"
+- Import each CSV file into the corresponding SQL table. We can import either graphically (as shown below with examples of first two tables; similar procedure for other tables too) or using scripts. The order in which the import is done should be strictly the same order in which tables are created. i.e, `titles` -> `employees` -> `salaries` -> `departments` -> `dept_emp` -> `dept_manager`
 
 <br>
 
