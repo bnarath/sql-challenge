@@ -126,7 +126,6 @@ $ ls -lrt /tmp/
     LEFT JOIN salaries AS sal
     ON emp.emp_no = sal.emp_no;
 
-    SELECT COUNT(*) FROM employee_details_and_salary;
     SELECT * FROM employee_details_and_salary;
    ```
    - A snippet of sample output 
@@ -144,7 +143,6 @@ $ ls -lrt /tmp/
     FROM employees as emp
     WHERE EXTRACT(YEAR FROM emp.hire_date) = 1986;
 
-    SELECT COUNT(*) FROM employees_hired_in_1986;
     SELECT * FROM employees_hired_in_1986;
 
     ```
@@ -163,7 +161,6 @@ $ ls -lrt /tmp/
       LEFT JOIN departments AS depts ON dep_mngr.dept_no = depts.dept_no
       LEFT JOIN employees AS emp ON dep_mngr.emp_no = emp.emp_no;
 
-      SELECT COUNT(*) FROM dept_manager_details;
       SELECT * FROM dept_manager_details;
      ```
    
@@ -183,7 +180,6 @@ $ ls -lrt /tmp/
     LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
     LEFT JOIN departments AS dept ON dept_emp.dept_no = dept.dept_no;
 
-    SELECT COUNT(*) FROM employee_dept_details;
     SELECT * FROM employee_dept_details;
    ```
   
