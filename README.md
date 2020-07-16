@@ -399,7 +399,7 @@ Evidence in hand, you march into your boss's office and present the visualizatio
 
 * [`.sql` file of data insertion](Output/postgres-employee-data-insert-data.sql)
 
-* [`.sql` file of your queries](Output/Analysis.sql)
+* [`.sql` file of queries](Output/Analysis.sql)
 
 * [Jupyter Notebook of the analysis](code/Connect_to_PostgresDB_and_Visualization.ipynb)
 
