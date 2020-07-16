@@ -139,10 +139,11 @@ $ ls -lrt /tmp/
 
     ```sql
 
+    DROP VIEW IF EXISTS employees_hired_in_1986;
     CREATE VIEW employees_hired_in_1986 AS  
-    SELECT emp.first_name, emp.last_name, emp.hire_date
-    FROM employees as emp
-    WHERE EXTRACT(YEAR FROM emp.hire_date) = 1986;
+    SELECT first_name AS "first name", last_name AS "last name", hire_date AS "hire date"
+    FROM employees
+    WHERE EXTRACT(YEAR FROM hire_date) = 1986;
 
     SELECT * FROM employees_hired_in_1986;
 
