@@ -20,9 +20,9 @@
 
 Inspect the CSVs and sketch out an ERD of the tables. Courtesy [http://www.quickdatabasediagrams.com](http://www.quickdatabasediagrams.com).
 
-- Blue attributes (Also Big Key symbol) indicates Primary Key (PK).
+- Blue attributes (Also Big Key symbol) indicate Primary Key (PK).
 - More than one PK in one table indicates the composite key.
-- The small tilted key indicates the UNIQUE attributes.
+- The small tilted key indicates UNIQUE attributes.
 - By default, all the attributes are NOT-NULL. "?" indicates "NULLABLE".
 - FK appears as bold black.
 - Some attributes can be Primary Key (PK) and Foreign Key (FK) together. In that case, PK dominates and appears in Blue.
