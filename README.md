@@ -158,7 +158,11 @@ $ ls -lrt /tmp/
   
      ```sql
       CREATE VIEW dept_manager_details AS 
-      SELECT dep_mngr.dept_no, depts.dept_name, dep_mngr.emp_no, emp.last_name, emp.first_name 
+      SELECT dep_mngr.dept_no AS "department number", 
+      depts.dept_name AS "department name",
+      dep_mngr.emp_no AS "manager's employee number", 
+      emp.last_name AS "manager's last name",
+      emp.first_name AS "manager's first name"
       FROM dept_manager AS dep_mngr
       LEFT JOIN departments AS depts ON dep_mngr.dept_no = depts.dept_no
       LEFT JOIN employees AS emp ON dep_mngr.emp_no = emp.emp_no;
@@ -177,7 +181,10 @@ $ ls -lrt /tmp/
    
    ```sql
     CREATE VIEW employee_dept_details AS
-    SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
+    SELECT emp.emp_no AS "employee number", 
+    emp.last_name AS "last name", 
+    emp.first_name AS "first name",
+    dept.dept_name AS "department name"
     FROM employees as emp
     LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
     LEFT JOIN departments AS dept ON dept_emp.dept_no = dept.dept_no;
@@ -195,10 +202,11 @@ $ ls -lrt /tmp/
 
     ```sql
 
-      SELECT emp.first_name, emp.last_name, emp.sex
-      FROM employees as emp
-      WHERE LOWER(emp.first_name) = 'hercules'
-      AND emp.last_name LIKE 'B%';
+      SELECT first_name AS "first name", last_name AS "last name", sex
+      FROM employees
+      WHERE LOWER(first_name) = 'hercules'
+      AND LOWER(last_name) LIKE 'b%';
+      
     ```
 
      - A snippet of sample output 
@@ -212,18 +220,22 @@ $ ls -lrt /tmp/
 1. List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
    ```sql
-    SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
+   
+    SELECT emp.emp_no AS "employee number", 
+    emp.last_name AS "last name",
+    emp.first_name AS "first name",
+    dept.dept_name AS "department name"
     FROM employees as emp
     LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
     LEFT JOIN departments AS dept ON dept_emp.dept_no = dept.dept_no
-    WHERE dept.dept_name = 'Sales';
+    WHERE dept.dept_name ILIKE 'sales';
    
    ```
    Same result is obtained from the previously created View 'employee_dept_details'
    
    ```sql
     SELECT * FROM employee_dept_details
-    WHERE dept_name = 'Sales';
+    WHERE "department name" ILIKE 'sales';
     
    ```
    
@@ -235,17 +247,20 @@ $ ls -lrt /tmp/
 1. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
     
    ```sql
-    SELECT emp.emp_no, emp.last_name, emp.first_name, dept.dept_name
+    SELECT emp.emp_no AS "employee number", 
+    emp.last_name AS "last name", 
+    emp.first_name AS "first name",
+    dept.dept_name AS "department name"
     FROM employees as emp
     LEFT JOIN dept_emp ON emp.emp_no = dept_emp.emp_no
     LEFT JOIN departments AS dept ON dept_emp.dept_no = dept.dept_no
-    WHERE dept.dept_name = 'Sales' OR dept.dept_name = 'Development';
+    WHERE dept.dept_name ILIKE 'sales' OR dept.dept_name ILIKE 'development';
    ```
    Same result is obtained from the previously created View 'employee_dept_details'
    
    ```sql
     SELECT * FROM employee_dept_details
-    WHERE dept_name = 'Sales' OR dept_name = 'Development';
+    WHERE "department name" ILIKE 'sales' OR "department name" ILIKE 'development';
    ```
    
    - A snippet of sample output 
@@ -257,10 +272,10 @@ $ ls -lrt /tmp/
 1. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
 
    ```sql
-    SELECT last_name, COUNT(*) AS freqency_count
+    SELECT last_name AS "last name", COUNT(*) AS freqency_count
     FROM employees
     GROUP BY last_name
-    ORDER BY freqency_count DESC
+    ORDER BY freqency_count DESC;
    ```
    - A snippet of sample output 
 
