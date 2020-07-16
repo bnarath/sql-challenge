@@ -1,0 +1,38 @@
+titles
+-
+title_id VARCHAR(5) PK
+title VARCHAR(30) UNIQUE
+
+employees
+-
+emp_no INTEGER PK
+emp_title_id VARCHAR(5) FK >- titles.title_id
+birth_date DATE
+first_name VARCHAR(20)
+last_name VARCHAR(20)
+sex VARCHAR(1) NULL
+# By default NOT NULL
+hire_date DATE
+
+salaries
+-
+emp_no INTEGER PK FK - employees.emp_no
+salary INTEGER
+
+departments
+-
+dept_no VARCHAR(4) PK
+dept_name VARCHAR(30) UNIQUE
+
+dept_emp
+-
+#  Compsite, also Compound key
+emp_no int PK FK >- employees.emp_no
+dept_no VARCHAR(4) PK FK >- departments.dept_no
+
+
+dept_manager
+-
+dept_no VARCHAR(4) FK >- departments.dept_no
+emp_no int PK FK - employees.emp_no
+
