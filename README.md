@@ -272,10 +272,10 @@ $ ls -lrt /tmp/
 1. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
 
    ```sql
-    SELECT last_name AS "last name", COUNT(*) AS freqency_count
+    SELECT last_name AS "last name", COUNT(*) AS "frequency count"
     FROM employees
     GROUP BY last_name
-    ORDER BY freqency_count DESC;
+    ORDER BY "frequency count" DESC;
    ```
    - A snippet of sample output 
 
