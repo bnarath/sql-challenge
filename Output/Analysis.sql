@@ -111,10 +111,10 @@ WHERE "department name" ILIKE 'sales' OR "department name" ILIKE 'development';
 employee last names, i.e., 
 how many employees share each last name.*/
 
-SELECT last_name AS "last name", COUNT(*) AS freqency_count
+SELECT last_name AS "last name", COUNT(*) AS "frequency count"
 FROM employees
 GROUP BY last_name
-ORDER BY freqency_count DESC;
+ORDER BY "frequency count" DESC;
 
 
 
